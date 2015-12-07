@@ -8,14 +8,14 @@ import org.apache.commons.lang3.*; //used for randomizing strings
 
 This project tries to test the built-in concat() function inside Java String library
 
-External libraries: Junit, org.hamcrest, and org.apache.commons !!!
+External libraries used in this project: Junit, org.hamcrest, and org.apache.commons !!!
 ****/
 
 public class StringConcatTest {
 	
 	//needed global variables/constants for the test
-	int NUM_OF_ARRAYS = 10000; //number of arrays tested
-	int MAX_SIZE = 10000; //maximum  size of an array
+	int NUM_OF_ARRAYS = 10000; //number of Strings tested
+	int MAX_SIZE = 10000; //maximum  size of a string
 	Random rnd = new Random(); //random generator
 	
 	//consider this: String C = String A + String B
@@ -37,7 +37,7 @@ public class StringConcatTest {
 			//initialize, aka randomizing the String arrays
 			initArraysLeft[i] = RandomStringUtils.random(rnd.nextInt(MAX_SIZE));
 			initArraysRight[i] = RandomStringUtils.random(rnd.nextInt(MAX_SIZE));
-			//preparation to test proprety 5 
+			//preparation to test Property 5 
 			initArraysLeftBackup[i] = new String(initArraysLeft[i]);
 			initArraysRightBackup[i] = new String(initArraysRight[i]);
 			//we concat the arrays!
@@ -128,6 +128,7 @@ public class StringConcatTest {
 	
 	
 	//property 5: concatenation should not change the 2 original strings
+	//it means we check if the backups of the initialArraysLeft and initialArraysRight are equal
 	@Test
 	public void testNotChangeOperands()
 	{
